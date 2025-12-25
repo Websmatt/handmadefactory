@@ -1,0 +1,13 @@
+.git
+.gitignore
+
+flutter_web/.dart_tool
+flutter_web/build
+flutter_web/.packages
+flutter_web/.flutter-plugins
+flutter_web/.flutter-plugins-dependencies
+flutter_web/.idea
+flutter_web/.vscode
+
+**/__pycache__/
+**/*.pyc

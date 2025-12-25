@@ -1,0 +1,57 @@
+# =====================
+# ENV / SECRETS
+# =====================
+.env
+
+# =====================
+# User / OS files
+# =====================
+.DS_Store
+*.swp
+*.swo
+
+# =====================
+# Linux home artefacts
+# =====================
+.bash_history
+.bash_logout
+.bashrc
+.profile
+.ssh/
+.cache/
+.config/
+.local/
+.sudo_as_admin_successful
+
+# =====================
+# Docker
+# =====================
+db_data/
+**/data/
+
+# =====================
+# Flutter
+# =====================
+flutter_web/.dart_tool/
+flutter_web/build/
+flutter_web/.packages
+flutter_web/.flutter-plugins
+flutter_web/.flutter-plugins-dependencies
+flutter_web/.idea/
+flutter_web/.vscode/
+
+# =====================
+# Python
+# =====================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env.*
+.venv/
+
+# =====================
+# Node / misc (na przyszłość)
+# =====================
+node_modules/
+dist/

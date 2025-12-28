@@ -40,7 +40,7 @@ class HandmadeFactory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'HandmadeFactory',
+      title: 'Handmade Factory',
       theme: ThemeData(useMaterial3: true),
       home: const BootstrapPage(),
     );
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Column(mainAxisSize: MainAxisSize.min, children: [
-                const Text('HandmadeFactory', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600)),
+                const Text('Handmade Factory', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600)),
                 const SizedBox(height: 12),
                 TextField(controller: emailCtrl, decoration: const InputDecoration(labelText: 'Email')),
                 const SizedBox(height: 8),

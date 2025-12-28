@@ -32,15 +32,15 @@ Future<void> _saveToken(String? token) async {
 }
 
 void main() {
-  runApp(const MyApp());
+  runApp(const HandmadeFactory());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HandmadeFactory extends StatelessWidget {
+  const HandmadeFactory({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MyApp',
+      title: 'HandmadeFactory',
       theme: ThemeData(useMaterial3: true),
       home: const BootstrapPage(),
     );
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Column(mainAxisSize: MainAxisSize.min, children: [
-                const Text('MyApp', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600)),
+                const Text('HandmadeFactory', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600)),
                 const SizedBox(height: 12),
                 TextField(controller: emailCtrl, decoration: const InputDecoration(labelText: 'Email')),
                 const SizedBox(height: 8),
@@ -179,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text(loading ? 'Logging in...' : 'Login'),
                 ),
                 const SizedBox(height: 10),
-                const Text('Use FIRST_ADMIN_EMAIL / FIRST_ADMIN_PASSWORD from .env', style: TextStyle(fontSize: 12)),
+                const Text('Log in to app!', style: TextStyle(fontSize: 12)),
               ]),
             ),
           ),
@@ -261,7 +261,7 @@ class _ItemsPageState extends State<ItemsPage> {
     final email = widget.me['email'] ?? '';
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MyApp'),
+        title: const Text('HandmadeFactory'),
         actions: [
           Center(child: Text('$email  ', style: const TextStyle(fontSize: 13))),
           IconButton(onPressed: _refresh, icon: const Icon(Icons.refresh)),

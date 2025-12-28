@@ -1,4 +1,4 @@
-# MyApp Flutter Web + FastAPI + Postgres (Docker, prod)
+# HandmadeFactory Flutter Web + FastAPI + Postgres (Docker, prod)
 
 ## Start
 ```bash

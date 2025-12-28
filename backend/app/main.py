@@ -6,7 +6,7 @@ from .security import verify_password, create_access_token
 from .deps import get_current_user, require_roles
 from .audit import write_audit_log
 
-app = FastAPI(title="MyApp API")
+app = FastAPI(title="HandmadeFactory API")
 
 @app.get("/api/health")
 def health():

@@ -274,11 +274,11 @@ class _ItemsPageState extends State<ItemsPage> {
           if (err != null) Padding(padding: const EdgeInsets.only(bottom: 10), child: Text(err!, style: const TextStyle(color: Colors.red))),
           if (canCreate)
             Row(children: [
-              Expanded(child: TextField(controller: nameCtrl, decoration: const InputDecoration(labelText: 'Name'))),
+              Expanded(child: TextField(controller: nameCtrl, decoration: const InputDecoration(labelText: 'Nazwa'))),
               const SizedBox(width: 10),
-              Expanded(child: TextField(controller: descCtrl, decoration: const InputDecoration(labelText: 'Description'))),
+              Expanded(child: TextField(controller: descCtrl, decoration: const InputDecoration(labelText: 'Opis'))),
               const SizedBox(width: 10),
-              FilledButton(onPressed: nameCtrl.text.trim().isEmpty ? null : _add, child: const Text('Add')),
+              FilledButton(onPressed: nameCtrl.text.trim().isEmpty ? null : _add, child: const Text('Dodaj')),
             ]),
           const SizedBox(height: 12),
           Expanded(
@@ -302,7 +302,7 @@ class _ItemsPageState extends State<ItemsPage> {
                   ),
           ),
           const SizedBox(height: 8),
-          const Text('API via /api (Nginx proxy).', style: TextStyle(fontSize: 12)),
+          const Text('Handmade Facroty©', style: TextStyle(fontSize: 12)),
         ]),
       ),
     );

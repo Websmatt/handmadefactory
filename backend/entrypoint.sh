@@ -14,9 +14,6 @@ for i in range(60):
 else:
     raise SystemExit('DB not reachable')"
 
-echo "Running migrations..."
-alembic upgrade head
-
 echo "Seeding roles/admin (idempotent)..."
 python -m app.seed
 

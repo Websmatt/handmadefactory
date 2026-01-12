@@ -6,8 +6,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY alembic.ini .
-COPY alembic ./alembic
 COPY app ./app
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

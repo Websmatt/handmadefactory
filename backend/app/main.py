@@ -34,7 +34,7 @@ def me(user: models.User = Depends(get_current_user)):
         roles=[r.name for r in user.roles],
         company=user.company
     )
-
+# ITEM OPERATIONS
 @app.get("/api/items", response_model=list[schemas.ItemOut])
 def list_items(db: Session = Depends(get_db), user: models.User = Depends(require_roles("admin","editor","viewer"))):
     items = db.query(models.Item).order_by(models.Item.id.desc()).all()
@@ -58,3 +58,44 @@ async def delete_item(request: Request, item_id: int, db: Session = Depends(get_
     db.commit()
     await write_audit_log(request, 200, db, user.id)
     return {"deleted": item_id}
+
+# PRODUCT OPERATIONS
+
+@app.get("/api/products", response_model=list[schemas.ProductOut])
+def list_products(
+    db: Session = Depends(get_db),
+    user: models.User = Depends(require_roles("admin", "editor", "viewer")),
+):
+    products = db.query(models.Product).order_by(models.Product.id.desc()).all()
+    return [schemas.ProductOut(id=p.id, name=p.name, description=p.description) for p in products]
+
+
+@app.post("/api/products", response_model=schemas.ProductOut)
+async def create_product(
+    request: Request,
+    payload: schemas.ProductIn,
+    db: Session = Depends(get_db),
+    user: models.User = Depends(require_roles("admin", "editor")),
+):
+    product = models.Product(name=payload.name, description=payload.description)
+    db.add(product)
+    db.commit()
+    db.refresh(product)
+    await write_audit_log(request, 200, db, user.id)
+    return schemas.ProductOut(id=product.id, name=product.name, description=product.description)
+
+
+@app.delete("/api/products/{product_id}")
+async def delete_product(
+    request: Request,
+    product_id: int,
+    db: Session = Depends(get_db),
+    user: models.User = Depends(require_roles("admin")),
+):
+    product = db.query(models.Product).filter(models.Product.id == product_id).first()
+    if not product:
+        raise HTTPException(status_code=404, detail="Not found")
+    db.delete(product)
+    db.commit()
+    await write_audit_log(request, 200, db, user.id)
+    return {"deleted": product_id}

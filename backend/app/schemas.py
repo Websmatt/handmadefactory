@@ -21,3 +21,10 @@ class ItemIn(BaseModel):
 
 class ItemOut(ItemIn):
     id: int
+
+class ProductIn(BaseModel):
+    name: str
+    description: str | None = None
+
+class ProductOut(ProductIn):
+    id: int

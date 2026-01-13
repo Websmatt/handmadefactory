@@ -9,3 +9,138 @@ python-jose==3.3.0
 passlib[argon2]==1.7.4
 argon2-cffi==23.1.0
 email-validator==2.2.0
+
+# DOKUMENTACJA ZALEŻNOŚCI – requirements.txt
+# ========================================
+
+# Projekt wykorzystuje FastAPI jako framework backendowy oraz PostgreSQL
+# jako bazę danych. Poniżej opisano wszystkie zależności używane w aplikacji
+# oraz ich przeznaczenie.
+
+# --------------------------------------------------
+# 1. fastapi==0.115.6
+# --------------------------------------------------
+# Framework webowy do budowy API w Pythonie.
+
+# Odpowiada za:
+# - definiowanie endpointów HTTP (GET, POST, PUT, DELETE),
+# - walidację danych wejściowych i wyjściowych,
+# - automatyczne generowanie dokumentacji API (/docs, /redoc).
+
+# Jest głównym komponentem aplikacji backendowej.
+
+# --------------------------------------------------
+# 2. uvicorn==0.32.1
+# --------------------------------------------------
+# Serwer ASGI służący do uruchamiania aplikacji FastAPI.
+
+# Wykorzystywany głównie w środowisku deweloperskim.
+# Obsługuje asynchroniczność (async/await).
+
+# Przykładowe użycie:
+# uvicorn app.main:app --reload
+
+# --------------------------------------------------
+# 3. gunicorn==22.0.0
+# --------------------------------------------------
+# Produkcjny serwer aplikacji (process manager).
+
+# Zapewnia:
+# - uruchamianie wielu workerów,
+# - stabilność aplikacji,
+# - automatyczne restarty procesów.
+
+# W połączeniu z FastAPI używany razem z workerem Uvicorn.
+
+# --------------------------------------------------
+# 4. sqlalchemy==2.0.36
+# --------------------------------------------------
+# ORM (Object Relational Mapper) do pracy z bazą danych.
+
+# Umożliwia:
+# - mapowanie tabel bazy danych na klasy Pythona,
+# - tworzenie zapytań bez używania surowego SQL,
+# - separację logiki aplikacji od warstwy bazy danych.
+
+# --------------------------------------------------
+# 5. psycopg[binary]==3.2.3
+# --------------------------------------------------
+# Sterownik PostgreSQL dla Pythona (psycopg v3).
+
+# Odpowiada za:
+# - nawiązywanie połączeń z bazą PostgreSQL,
+# - wykonywanie zapytań SQL.
+
+# Wariant [binary] eliminuje potrzebę kompilacji zależności systemowych
+# (co jest szczególnie przydatne w środowiskach Dockerowych).
+
+# --------------------------------------------------
+# 6. pydantic==2.10.2
+# --------------------------------------------------
+# Biblioteka do walidacji i serializacji danych.
+
+# W FastAPI wykorzystywana do:
+# - walidacji danych wejściowych (request),
+# - definiowania schematów odpowiedzi (response),
+# - pracy z typami danych i kontrolą ich poprawności.
+
+# --------------------------------------------------
+# 7. pydantic-settings==2.6.1
+# --------------------------------------------------
+# Rozszerzenie Pydantic do zarządzania konfiguracją aplikacji.
+
+# Umożliwia:
+# - wczytywanie zmiennych środowiskowych,
+# - obsługę plików .env,
+# - centralne zarządzanie ustawieniami aplikacji
+#   (np. DATABASE_URL, SECRET_KEY).
+
+# --------------------------------------------------
+# 8. python-jose==3.3.0
+# --------------------------------------------------
+# Biblioteka do obsługi JWT (JSON Web Token).
+
+# Służy do:
+# - generowania tokenów JWT,
+# - weryfikacji tokenów użytkownika,
+# - implementacji autoryzacji typu Bearer.
+
+# --------------------------------------------------
+# 9. passlib[argon2]==1.7.4
+# --------------------------------------------------
+# Biblioteka do bezpiecznego haszowania haseł.
+
+# Zapewnia:
+# - tworzenie hashy haseł,
+# - weryfikację haseł przy logowaniu.
+
+# Wykorzystuje algorytm Argon2, uznawany za jeden z najbezpieczniejszych.
+
+# --------------------------------------------------
+# 10. argon2-cffi==23.1.0
+# --------------------------------------------------
+# Niskopoziomowa implementacja algorytmu Argon2.
+
+# Jest backendem kryptograficznym wykorzystywanym przez bibliotekę passlib
+# do haszowania haseł.
+
+# --------------------------------------------------
+# 11. email-validator==2.2.0
+# --------------------------------------------------
+# Biblioteka do walidacji adresów e-mail.
+
+# Wykorzystywana przez Pydantic przy typie EmailStr.
+# Sprawdza poprawność formatu adresu e-mail
+# oraz opcjonalnie poprawność domeny.
+
+# --------------------------------------------------
+# PODSUMOWANIE
+# --------------------------------------------------
+# Stack technologiczny projektu:
+# - FastAPI – framework API
+# - Uvicorn / Gunicorn – serwer aplikacji
+# - SQLAlchemy + psycopg – PostgreSQL
+# - Pydantic – walidacja danych
+# - python-jose – JWT i autoryzacja
+# - passlib + Argon2 – bezpieczeństwo haseł
+# - pydantic-settings – konfiguracja aplikacji

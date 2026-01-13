@@ -15,6 +15,7 @@ class User(Base):
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default="true")
     created_at: Mapped[str] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    company: Mapped[str] = mapped_column(String(255), nullable=False)
 
     roles: Mapped[list["Role"]] = relationship(secondary="user_roles", lazy="selectin")
 

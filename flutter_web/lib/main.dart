@@ -121,7 +121,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final emailCtrl = TextEditingController(text: 'admin@example.com');
+  final emailCtrl = TextEditingController(text: 'mpalys@loluli.pl');
   final passCtrl = TextEditingController();
   bool loading = false;
   String? err;
@@ -259,10 +259,12 @@ class _ItemsPageState extends State<ItemsPage> {
   @override
   Widget build(BuildContext context) {
     final email = widget.me['email'] ?? '';
+    final company = widget.me['company'] ?? '';
     return Scaffold(
       appBar: AppBar(
         title: const Text('HandmadeFactory'),
         actions: [
+          Center(child: Text('$company  ', style: const TextStyle(fontSize: 13))),
           Center(child: Text('$email  ', style: const TextStyle(fontSize: 13))),
           IconButton(onPressed: _refresh, icon: const Icon(Icons.refresh)),
           IconButton(onPressed: widget.onLogout, icon: const Icon(Icons.logout)),
@@ -302,7 +304,7 @@ class _ItemsPageState extends State<ItemsPage> {
                   ),
           ),
           const SizedBox(height: 8),
-          const Text('Handmade Facroty©', style: TextStyle(fontSize: 12)),
+          const Text('Handmade Facroty ©', style: TextStyle(fontSize: 12)),
         ]),
       ),
     );

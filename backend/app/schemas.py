@@ -13,6 +13,7 @@ class UserOut(BaseModel):
     email: EmailStr
     full_name: str | None
     roles: list[str]
+    company: str
 
 class ItemIn(BaseModel):
     name: str

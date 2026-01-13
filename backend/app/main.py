@@ -32,6 +32,7 @@ def me(user: models.User = Depends(get_current_user)):
         email=user.email,
         full_name=user.full_name,
         roles=[r.name for r in user.roles],
+        company=user.company
     )
 
 @app.get("/api/items", response_model=list[schemas.ItemOut])
